@@ -1,0 +1,59 @@
+.articleDetailsContainer {
+  border: 1px solid black;
+  padding: 3rem 6rem;
+  margin: 3rem 0;
+}
+.articleTitle {
+  margin: 2rem 0;
+  font-family: "Playfair Display", serif;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.articleContent h3 {
+  margin: 1rem 0;
+}
+
+.articleSubtitle {
+  font-weight: 600;
+  font-size: 17px;
+}
+.articleImage {
+  height: 400px;
+  width: 100%;
+  margin: 3rem 0;
+  object-fit: cover;
+}
+.timeInfo {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+}
+.middleDot {
+  width: 3px; /* Ajustez la largeur du point selon vos préférences */
+  height: 3px; /* Ajustez la hauteur du point selon vos préférences */
+  background-color: #000; /* Couleur du point */
+  border-radius: 50%; /* Pour créer un cercle */
+  margin: 0 10px; /* Ajustez la marge pour positionner le point au milieu */
+}
+@media screen and (max-width: 1400px) {
+.articleImage {
+  height: auto;
+}
+  
+}
+@media screen and (max-width: 1000px) {
+  .articleDetailsContainer {
+    padding: 0;
+    border: none;
+  }
+  
+}
+@media screen and (max-width: 600px) {
+  .articleTitle {
+    font-size: 30px;
+  }
+    
+  }
+
+

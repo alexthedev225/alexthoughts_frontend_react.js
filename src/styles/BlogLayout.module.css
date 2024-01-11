@@ -1,0 +1,66 @@
+.navbarList {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  width: 25rem;
+}
+
+.navbarLink {
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+  &:hover {
+    transition: all ease 0.3s;
+    color: blueviolet;
+  }
+}
+.selectNavbarContainer {
+  display: none;
+}
+@media screen and (max-width: 500px) {
+  .navbarList {
+    width: 100%;
+  }
+  .navbarLink {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .navbarList {
+    display: none;
+  }
+  .selectNavbarContainer {
+    display: block;
+    width: 100%;
+    padding: 0 1rem;
+  }
+  .dropdownSelect {
+    width: 100%;
+    border: 1px solid gray;
+    font-size: 14px;
+    /* border: none; */
+    background-color: #fff;
+    color: black;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  /* Style pour les options dans la liste déroulante */
+  .dropdownSelect option {
+    background-color: #fff;
+    color: black;
+  }
+
+  /* Style pour la balise optgroup */
+  .dropdownSelect optgroup {
+    font-weight: bold;
+    color: black;
+  }
+  .navbarList {
+    width: 100%;
+  }
+  .navbarLink {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,65 @@
+.articleListContainer {
+  margin: 3rem 0;
+}
+
+.articleList {
+    list-style: none;
+}
+
+.articleLink {
+  border: 1px solid black;
+  display: flex;
+  height: 350px;
+  margin-bottom: 2rem;
+  text-decoration: none;
+  color: black;
+}
+
+.articleListItem:last-child {
+  margin-bottom: 0;
+}
+
+.articleLink > * {
+  height: 100%;
+}
+
+.articleImage {
+  object-fit: cover;
+  width: 48%;
+}
+
+.articleInfoContainer {
+    padding: 2rem;
+}
+
+.timeInfo {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+}
+
+.middleDot {
+  width: 3px; /* Ajustez la largeur du point selon vos préférences */
+  height: 3px; /* Ajustez la hauteur du point selon vos préférences */
+  background-color: #000; /* Couleur du point */
+  border-radius: 50%; /* Pour créer un cercle */
+  margin: 0 10px; /* Ajustez la marge pour positionner le point au milieu */
+}
+
+.articleTitle {
+    margin: 1rem 0;
+}
+@media screen and (max-width: 1000px) {
+  .articleLink {
+    flex-direction: column;
+    height: max-content;
+  }
+  .articleLink > * {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .articleLink {
+    border: none;
+  }
+}

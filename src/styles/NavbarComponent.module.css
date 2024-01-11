@@ -1,0 +1,229 @@
+
+.parentContainer {
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 40vh;
+}
+.header a {
+  text-decoration: none;
+}
+.personalText {
+  font-size: 22px;
+  letter-spacing: 8px;
+  font-weight: 400;
+}
+.blogTitle {
+  color: black;
+  font-size: 115px;
+  font-family: 'Playfair Display', serif;
+  font-weight: bolder;
+}
+.navbarContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 7vh;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+.navigationLinks {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+.socialLinks {
+  width: 12.5rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-right: 1px solid black;
+  text-decoration: none;
+  color: black;
+  font-size: 13px;
+}
+.navigationLinks a{
+  height: 100%;
+  width: 12.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid black;
+  text-decoration: none;
+  color: black;
+  font-size: 13px;
+}
+
+.navigationLinks a:last-child {
+  border-right: 1px solid black;
+}
+
+.navigationLinks a:hover {
+  color: blueviolet;
+}
+.link-container a {
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+}
+
+a.active {
+  color: blueviolet;
+}
+
+.menu-items {
+  display: none;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border: none;
+}
+.menu-items button {
+  height: 2.9rem;
+  width: 11rem;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  border: 3px solid black;
+  background-color: white;
+  border-radius: 3rem;
+  transition: all ease 0.3s;
+}
+
+.close-button {
+  align-self: flex-end;
+  cursor: pointer;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.show-menu {
+  display: flex;
+}
+.burger-menu-button {
+  display: none;
+  padding: 0 2rem;
+}
+
+.burger-line {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 4px 0;
+  transition: all 0.3s ease-in-out;
+}
+.burger-menu-button.close {
+  position: absolute;
+  top: 10%;
+  right: 5%;
+}
+.burger-menu-button.close .burger-line:nth-child(1) {
+  transform: translateY(11px) rotate(45deg);
+}
+
+.burger-menu-button.close .burger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-menu-button.close .burger-line:nth-child(3) {
+  transform: translateY(-15px) rotate(-45deg);
+}
+
+@media screen and (max-width: 1300px) {
+  .blogTitle {
+    font-size: 100px;
+  }
+  .personalText {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .burger-menu-button {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    background: none;
+    border: none;
+    z-index: 2;
+  }
+  .menu-items .link-container {
+    list-style: none;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    list-style: none;
+  }
+  .navigationLinks {
+    display: none;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .header {
+  
+    height: 30vh;
+  }
+  .blogTitle {
+    font-size: 80px;
+  }
+  .personalText {
+    font-size: 14px;
+  }
+ 
+}
+@media screen and (max-width: 900px) {
+  .navLinks>:first-child {
+    border-left: 0;
+  }
+  .navLinks>:last-child {
+    border-right: 0;
+  }
+
+}
+@media screen and (max-width: 700px) {
+  .blogTitle {
+    font-size: 50px;
+  }
+  .personalText {
+    text-align: center;
+  }
+  .header {
+    flex-direction: column-reverse;
+  }
+  
+}
+@media screen and (max-width: 500px) {
+ 
+  .blogTitle {
+    font-size: 40px;
+  }
+  .personalText {
+    letter-spacing: 4px;
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 350px) {
+ 
+  .blogTitle {
+    font-size: 35px;
+  }
+ 
+}

@@ -1,0 +1,140 @@
+.contactFormContainer {
+  border-top: 1px solid black;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem 1rem;
+}
+.scrollToTopButton {
+  cursor: pointer;
+  height: 80px;
+}
+.formTitle {
+  font-size: 38px;
+  font-family: "Playfair Display", serif;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.form {
+  height: 25rem;
+  width: 46rem;
+  display: flex;
+  font-size: 14px;
+  color: gray;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.formTextarea,
+.formInput {
+  outline: none;
+  border: none;
+  resize: none;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  margin-top: 1rem;
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+.formTextarea {
+  height: 5rem;
+}
+.formTextarea:focus,
+.formInput:focus,
+.formTextarea:hover,
+.formInput:hover {
+  border-bottom: 2px solid #8a2be2;
+}
+.additionalSection {
+  display: flex;
+  justify-content: space-between;
+}
+.additionalSection .formLabel {
+  width: 47%;
+}
+.formButton {
+  height: 3rem;
+  width: 16rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  font-size: 15px;
+  background-color: #8a2be2;
+  color: #fff;
+  align-self: center;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #6a1c8b;
+  }
+}
+
+/* Ajoute ces styles dans ton fichier ContactForm.module.css */
+
+/* Styles pour le fond flou lorsque la modal est visible */
+/* Ajoute ces styles dans ton fichier ContactForm.module.css */
+
+/* Styles pour la boîte modale avec fond légèrement opaque et flou */
+.modalContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(8px); /* Ajout de l'effet de flou pour le fond de la modal */
+  background-color: rgba(0, 0, 0, 0.488); /* Couleur de fond légèrement opaque et tirant vers le noir */
+}
+
+/* Styles pour le contenu de la modal */
+.modal {
+  background-color: rgba(255, 255, 255, 0.8); /* Couleur de fond légèrement opaque */
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Styles pour le message de succès */
+.successMessage {
+  color: #4caf50;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* Styles pour le message d'erreur */
+.errorMessage {
+  color: #f44336;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+
+@media screen and (max-width: 1200px) {
+  
+}
+@media screen and (max-width: 900px) {
+  .formTitle {
+    font-size: 30px;
+  }
+  .form {
+    width: 80%;
+  }
+  .additionalSection {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .additionalSection .formLabel {
+    width: auto;
+  }
+  .additionalSection .formLabel:last-child {
+    margin-top: 1rem;
+  }
+}

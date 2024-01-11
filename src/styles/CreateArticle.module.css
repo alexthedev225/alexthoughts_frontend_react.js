@@ -1,0 +1,58 @@
+/* CreateArticle.module.css */
+
+.createArticleContainer {
+    margin-bottom: 3rem;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    
+  }
+  .createArticleContainer h2 {
+    margin-bottom: 1rem;
+  }
+  .articleForm {
+    display: flex;
+    flex-direction: column;
+    
+  }
+  
+  .articleLabel {
+    margin-bottom: 10px;
+  }
+  
+  .articleInput,
+  .articleTextarea,
+  .articleSelect,
+  .articleFileInput {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: none;
+  }
+
+  .articleSelect,
+  .articleFileInput {
+    cursor: pointer;
+  }
+
+  .articleSubmitButton {
+    background-color: blueviolet;
+    margin: 0 auto;
+    width: 10rem;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    transition: all ease 0.3s;
+    cursor: pointer;
+  }
+  
+  .articleSubmitButton:hover {
+    background-color: rgb(98, 31, 161);
+  }
+  

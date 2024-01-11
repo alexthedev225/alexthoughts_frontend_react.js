@@ -1,0 +1,60 @@
+.parentContainer {
+  height: 130vh;
+  margin: 3rem 0;
+}
+.profilContainer {
+  height: 100%;
+  border: 1px solid black;
+}
+.profilImage {
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+.profilInfo {
+  height: 50%;
+  padding: 0 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.profilInfo h1 {
+  font-size: 37px;
+  font-family: "Playfair Display", serif;
+}
+
+@media screen and (max-width: 1300px) {
+  .parentContainer {
+    height: max-content;
+  }
+  .profilImage {
+    height: max-content;
+    object-fit: contain;
+  }
+  .profilInfo {
+    padding: 3rem 3rem;
+    height: max-content;
+  }
+  .profilInfo h1 {
+    margin-bottom: 3rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .profilInfo {
+    padding: 1rem 1.5rem;
+    height: max-content;
+  }
+  .profilInfo h1 {
+    margin-bottom: 3rem;
+    font-size: 30px;
+    margin-bottom: 1rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  .profilContainer, .profilImage {
+    border: none;
+  }
+}
+

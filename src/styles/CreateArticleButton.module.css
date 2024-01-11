@@ -1,0 +1,18 @@
+/* CreateArticleButton.module.css */
+.createArticleButton {
+  margin: 1rem 0; /* Ajoutez d'autres styles selon vos préférences */
+  border: 1px solid black;
+}
+
+.buttonLink {
+  text-decoration: none;
+  background-color: #8a2be2;
+  color: #fff;
+  padding: 10px 15px;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+  
+  &:hover {
+    background-color: #6a1c8b;
+  }
+}
