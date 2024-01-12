@@ -1,34 +1,16 @@
 import styles from "../styles/About.module.css";
 import profilImage from "../assets/alex-avatar.jpeg";
 import LazyLoad from "react-lazyload";
-import { useState } from "react";
 
 const About = () => {
-
-  const [imageLoading, setImageLoading] = useState(true);
-
-  const handleImageLoaded = () => {
-    // Mettez à jour l'état une fois que l'image est chargée
-    setImageLoading(false);
-  };
-
   return (
     <div className={styles.parentContainer}>
       <div className={styles.profilContainer}>
-      <LazyLoad
-          className={styles.profilImageContainer}
-          offset={100} // Optionnel : ajustez la valeur en fonction de votre disposition
-          onContentVisible={() => handleImageLoaded()}
-        >
-          {imageLoading && (
-            // Affichez une div avec une couleur de fond pendant le chargement de l'image
-            <div className={styles.loadingBackground}></div>
-          )}
+        <LazyLoad className={styles.profilImageContainer}>
           <img
             src={profilImage}
             alt={profilImage}
             className={styles.profilImage}
-            onLoad={handleImageLoaded} // Appelé lorsque l'image est chargée
           />
         </LazyLoad>
         <div className={styles.profilInfo}>
