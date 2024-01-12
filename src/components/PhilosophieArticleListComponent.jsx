@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import styles from "../styles/CategorieArticleList.module.css"; // Assure-toi d'ajuster le chemin selon l'emplacement de ton fichier CSS module.
 import useArticles from "../../utils/api";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -8,7 +10,7 @@ const PhilosophieArticleListComponent = () => {
   const { data, isLoading, isError } = useArticles();
 
   if (isLoading) {
-    return <p>Chargement...</p>;
+    return <FontAwesomeIcon icon={faSpinner} spin size="3x" style={{ margin: "3rem 0"}}/>;
   }
 
   if (isError) {

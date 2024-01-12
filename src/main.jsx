@@ -13,41 +13,41 @@ import TechnologyArticleListComponent from "./components/TechnologyArticleListCo
 import PhilosophieArticleListComponent from "./components/PhilosophieArticleListComponent.jsx";
 import SportArticleListComponent from "./components/SportArticleListComponent.jsx";
 import BlogLayout from "./pages/Blog/Layout.jsx";
-import {
-  QueryClient,
-  QueryClientProvider,
-} from 'react-query'
+import { QueryClient, QueryClientProvider } from "react-query";
+import { Suspense } from "react";
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
+  <Suspense fallback={"chargement"}>
   <QueryClientProvider client={queryClient}>
-  <BrowserRouter>
-    <Layout>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/inscription" element={<SignUpForm />} />
-        <Route path="/connexion" element={<LoginComponent />} />
-        <Route path="/article/create" element={<CreateArticle />} />
-        <Route path="/à-propos" element={<About />} />
-        <Route path="/mon-blog/*" element={<BlogLayout />}>
-          <Route index element={<Blog />} />
-          <Route
-            path="categories/technologie"
-            element={<TechnologyArticleListComponent />}
-          />
-          <Route
-            path="categories/philosophie"
-            element={<PhilosophieArticleListComponent />}
-          />
-          <Route
-            path="categories/sport"
-            element={<SportArticleListComponent />}
-          />
-          <Route path="articles/:id" element={<ArticleDetails />} />
-        </Route>
-      </Routes>
-    </Layout>
-  </BrowserRouter>
+    <BrowserRouter>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/inscription" element={<SignUpForm />} />
+          <Route path="/connexion" element={<LoginComponent />} />
+          <Route path="/article/create" element={<CreateArticle />} />
+          <Route path="/à-propos" element={<About />} />
+          <Route path="/mon-blog/*" element={<BlogLayout />}>
+            <Route index element={<Blog />} />
+            <Route
+              path="categories/technologie"
+              element={<TechnologyArticleListComponent />}
+            />
+            <Route
+              path="categories/philosophie"
+              element={<PhilosophieArticleListComponent />}
+            />
+            <Route
+              path="categories/sport"
+              element={<SportArticleListComponent />}
+            />
+            <Route path="articles/:id" element={<ArticleDetails />} />
+          </Route>
+        </Routes>
+      </Layout>
+    </BrowserRouter>
   </QueryClientProvider>
+  </Suspense>
 );

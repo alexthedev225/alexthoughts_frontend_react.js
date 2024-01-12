@@ -1,21 +1,25 @@
 import { Link } from "react-router-dom";
 import styles from "../styles/ArticleRecentComponent.module.css";
 import apiUrl from "../../config/api";
-import { useQuery } from 'react-query';
-
+import { useQuery } from "react-query";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 const fetchRecentArticle = async () => {
   const response = await fetch(`${apiUrl}/api/articles`);
   const result = await response.json();
   return result[result.length - 1]; // Utilise result.length - 1 pour obtenir le dernier article
-
 };
 
 const ArticleRecentComponent = () => {
-  const { data, isLoading, isError } = useQuery('recentArticle', fetchRecentArticle);
+  const { data, isLoading, isError } = useQuery(
+    "recentArticle",
+    fetchRecentArticle
+  );
 
   if (isLoading) {
-    return <p>Chargement...</p>;
+    // Affiche l'icône de chargement FontAwesome au lieu du texte
+    return <FontAwesomeIcon icon={faSpinner} spin size="3x" style={{ marginBottom: "3rem"}}/>;
   }
 
   if (isError) {
@@ -47,53 +51,44 @@ const ArticleRecentComponent = () => {
       const imageUrl = URL.createObjectURL(imageBlob);
 
       return (
-        <img
-          className={styles.image}
-          src={imageUrl}
-          alt="article image"
-        />
+        <img className={styles.image} src={imageUrl} alt="article image" />
       );
     }
     return null;
-    
   };
   // ...
   return (
     <div className={styles.articleContainer}>
-      {Array.isArray(data) && data.length === 0 ? (
-        <p>Chargement ...</p>
-      ) : (
-        <>
-          {data && (
-            <>
-              <div className={styles.postLabel}>
-                <p>POST À L&apos;AFFICHE</p>
-              </div>
-              <div className={styles.article}>
-                <Link
-                  to={`/mon-blog/articles/${data._id}`}
-                  className={styles.link}
-                >
-                  {renderImage(data)}
-                  <div className={styles.content}>
-                    <div className={styles.timeInfo}>
-                      <p className={styles.date}>
-                        {formatDate(data.publishedAt)}
-                      </p>
-                      <div className={styles.middleDot}></div>
-                      <p className={styles.readTime}>
-                        {calculateReadTime(data.content)} min
-                      </p>
-                    </div>
-                    <h2 className={styles.title}>{data.title}</h2>
-                    <p className={styles.subtitle}>{data.subtitle}</p>
+      <>
+        {data && (
+          <>
+            <div className={styles.postLabel}>
+              <p>POST À L&apos;AFFICHE</p>
+            </div>
+            <div className={styles.article}>
+              <Link
+                to={`/mon-blog/articles/${data._id}`}
+                className={styles.link}
+              >
+                {renderImage(data)}
+                <div className={styles.content}>
+                  <div className={styles.timeInfo}>
+                    <p className={styles.date}>
+                      {formatDate(data.publishedAt)}
+                    </p>
+                    <div className={styles.middleDot}></div>
+                    <p className={styles.readTime}>
+                      {calculateReadTime(data.content)} min
+                    </p>
                   </div>
-                </Link>
-              </div>
-            </>
-          )}
-        </>
-      )}
+                  <h2 className={styles.title}>{data.title}</h2>
+                  <p className={styles.subtitle}>{data.subtitle}</p>
+                </div>
+              </Link>
+            </div>
+          </>
+        )}
+      </>
     </div>
   );
   // ...

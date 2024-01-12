@@ -14,7 +14,6 @@ const Home = () => {
       <ArticleRecentComponent />
     </>
   );
-  
 };
 
 export default Home;
