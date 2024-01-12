@@ -2,6 +2,8 @@ import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import styles from "../styles/ArticleDetails.module.css";
 import apiUrl from "../../config/api";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 const fetchArticleDetails = async (id) => {
   const response = await fetch(`${apiUrl}/api/articles/${id}`, {
@@ -20,7 +22,7 @@ const ArticleDetails = () => {
   } = useQuery(["article", id], () => fetchArticleDetails(id));
 
   if (isLoading) {
-    return <p>Chargement en cours...</p>;
+    return <FontAwesomeIcon icon={faSpinner} spin size="3x" style={{ margin: "3rem 0"}}/>;
   }
 
   if (isError) {
