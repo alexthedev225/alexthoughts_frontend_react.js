@@ -1,31 +1,31 @@
-import { useState, useEffect } from "react";
+import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import styles from "../styles/ArticleDetails.module.css";
 import apiUrl from "../../config/api";
 
+const fetchArticleDetails = async (id) => {
+  const response = await fetch(`${apiUrl}/api/articles/${id}`, {
+    cache: "force-cache",
+  });
+  const data = await response.json();
+  return data.article;
+};
+
 const ArticleDetails = () => {
   const { id } = useParams();
-  const [article, setArticle] = useState(null);
-  useEffect(() => {
-    const fetchArticleDetails = async () => {
-      try {
-        const response = await fetch(`${apiUrl}/api/articles/${id}`, {
-          cache: "force-cache"
-        });
-        const data = await response.json();
-        console.log(data.article);
+  const {
+    data: article,
+    isLoading,
+    isError,
+  } = useQuery(["article", id], () => fetchArticleDetails(id));
 
-        setArticle(data.article);
-      } catch (error) {
-        console.error(
-          "Erreur lors de la récupération des détails de l'article :",
-          error
-        );
-      }
-    };
+  if (isLoading) {
+    return <p>Chargement en cours...</p>;
+  }
 
-    fetchArticleDetails();
-  }, [id]);
+  if (isError) {
+    return <p>Erreur lors de la récupération des détails de l'article</p>;
+  }
   // Fonction pour formater la date
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "short", day: "numeric" };
@@ -78,7 +78,6 @@ const ArticleDetails = () => {
       );
     }
     return null;
-    
   };
   return (
     <div className={styles.articleDetailsContainer}>

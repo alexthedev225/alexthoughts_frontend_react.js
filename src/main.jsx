@@ -13,8 +13,15 @@ import TechnologyArticleListComponent from "./components/TechnologyArticleListCo
 import PhilosophieArticleListComponent from "./components/PhilosophieArticleListComponent.jsx";
 import SportArticleListComponent from "./components/SportArticleListComponent.jsx";
 import BlogLayout from "./pages/Blog/Layout.jsx";
+import {
+  QueryClient,
+  QueryClientProvider,
+} from 'react-query'
+
+const queryClient = new QueryClient()
 
 ReactDOM.createRoot(document.getElementById("root")).render(
+  <QueryClientProvider client={queryClient}>
   <BrowserRouter>
     <Layout>
       <Routes>
@@ -42,4 +49,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       </Routes>
     </Layout>
   </BrowserRouter>
+  </QueryClientProvider>
 );

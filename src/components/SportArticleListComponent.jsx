@@ -1,23 +1,18 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../styles/CategorieArticleList.module.css"; // Assure-toi d'ajuster le chemin selon l'emplacement de ton fichier CSS module.
-import fetchData from "../../utils/api";
+import useArticles from '../../utils/api';
+
 
 const SportArticleListComponent = () => {
-  const [data, setData] = useState([]);
+  const { data, isLoading, isError } = useArticles();
 
-  useEffect(() => {
-    const fetchDataFromApi = async () => {
-      try {
-        const result = await fetchData(); // Utilise la fonction fetchData sans spécifier l'URL ici
-        setData(result);
-      } catch (error) {
-        console.error("Erreur lors de la récupération des données:", error);
-      }
-    };
+  if (isLoading) {
+    return <p>Chargement...</p>;
+  }
 
-    fetchDataFromApi();
-  }, []);
+  if (isError) {
+    return <p>Erreur lors de la récupération des données</p>;
+  }
 
   // Filtrer les articles par catégorie
   const filterByCategory = (category) => {
