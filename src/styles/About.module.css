@@ -30,8 +30,7 @@
     height: max-content;
   }
   .profilImage {
-    height: max-content;
-    object-fit: contain;
+    height: auto;
   }
   .profilInfo {
     padding: 3rem 3rem;

@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import styles from "../styles/CreateArticle.module.css";
 import { useNavigate } from "react-router-dom";
+import apiUrl from "../../config/api";
 // import apiUrl from "../../config/api";
 
 const CreateArticle = () => {
@@ -43,7 +44,7 @@ const CreateArticle = () => {
     formDataWithImage.append("image", image);
 
     try {
-      await axios.post(`http://localhost:3000/api/articles`, formDataWithImage, {
+      await axios.post(`${apiUrl}/api/articles`, formDataWithImage, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
