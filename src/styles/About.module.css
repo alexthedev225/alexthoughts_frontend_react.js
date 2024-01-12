@@ -6,9 +6,13 @@
   height: 100%;
   border: 1px solid black;
 }
-.profilImage {
+.profilImageContainer {
   width: 100%;
   height: 50%;
+}
+.profilImage {
+  height: 100%;
+  width: 100%;
   object-fit: cover;
   border-right: 1px solid black;
   border-bottom: 1px solid black;
@@ -24,7 +28,11 @@
   font-size: 37px;
   font-family: "Playfair Display", serif;
 }
-
+.loadingBackground {
+  width: 100%;
+  height: 100%;
+  background-color: #ffd9e6;
+}
 @media screen and (max-width: 1300px) {
   .parentContainer {
     height: max-content;
