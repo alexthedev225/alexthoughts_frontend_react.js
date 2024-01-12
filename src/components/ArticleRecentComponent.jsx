@@ -9,24 +9,52 @@ const ArticleRecentComponent = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${apiUrl}/api/articles`, {
-          cache: "reload"
-        });
-        const result = await response.json();
-
-        // Trie les articles par date de publication, du plus récent au plus ancien
-        const sortedData = result.sort(
-          (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt)
-        );
-
-        setData(sortedData[0]);
+        // Récupérer les données en cache
+        const cachedData = localStorage.getItem("cachedData");
+        let cachedDataParsed = [];
+  
+        if (cachedData) {
+          cachedDataParsed = JSON.parse(cachedData);
+        }
+  
+        // Vérifier si les données en cache sont obsolètes
+        const isCacheObsolete =
+          cachedDataParsed.length > 0 &&
+          new Date() - new Date(cachedDataParsed[0].publishedAt) < cacheTime;
+  
+        // Utiliser les données en cache si elles ne sont pas obsolètes
+        if (isCacheObsolete) {
+          setData(cachedDataParsed[0]);
+          console.log("Données récupérées depuis le cache");
+        } else {
+          // Récupérer les nouvelles données depuis l'API
+          const response = await fetch(`${apiUrl}/api/articles`, {
+            cache: "no-store" // Éviter la mise en cache du navigateur
+          });
+          const result = await response.json();
+  
+          // Trier les nouvelles données par date de publication
+          const sortedData = result.sort(
+            (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt)
+          );
+  
+          // Mettre à jour le cache avec les nouvelles données
+          localStorage.setItem("cachedData", JSON.stringify(sortedData));
+  
+          // Mettre à jour l'état avec les nouvelles données
+          setData(sortedData[0]);
+          console.log("Nouvelles données récupérées depuis l'API");
+        }
       } catch (error) {
         console.error("Erreur lors de la récupération des données:", error);
       }
     };
-
+  
+    const cacheTime = 60 * 1000; // Temps en millisecondes avant de considérer le cache comme obsolète (1 minute)
+  
     fetchData();
   }, []);
+  
 
   // Fonction pour formater la date
   const formatDate = (dateString) => {
