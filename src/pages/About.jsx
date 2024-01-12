@@ -1,14 +1,16 @@
 import styles from "../styles/About.module.css";
 import profilImage from "../assets/alex-avatar.jpeg";
+import LazyLoad from "react-lazyload";
+
 const About = () => {
   return (
     <div className={styles.parentContainer}>
       <div className={styles.profilContainer}>
-        <img
-          src={profilImage}
-          alt={profilImage}
-          className={styles.profilImage}
-        />
+          <img
+            src={profilImage}
+            alt={profilImage}
+            className={styles.profilImage}
+          />
         <div className={styles.profilInfo}>
           <h1>Salut ! Ravi de te rencontrer.</h1>
           <p>
