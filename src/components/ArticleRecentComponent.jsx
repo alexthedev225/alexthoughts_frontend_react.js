@@ -10,7 +10,7 @@ const ArticleRecentComponent = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(`${apiUrl}/api/articles`, {
-          cache: "force-cache"
+          cache: "no-cache"
         });
         const result = await response.json();
 
